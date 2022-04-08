@@ -3,7 +3,7 @@ import { Button, Incubator, View } from 'react-native-ui-lib';
 
 export default function App() {
   return (
-    <View flex padding-page>
+    <View flex width="100%" height="100%" paddingV-100>
       <Incubator.TextField
         placeholder={'E-mail'}
         floatingPlaceholder
@@ -12,10 +12,8 @@ export default function App() {
         validate={['required', 'email']}
         validationMessage={['Field is required', 'Email is invalid']}
         showCharCounter
-        maxLength={30}
       />
-
-      <Button label="Button" body bg-primaryColor square></Button>
+      <Button label="Register" body bg-primaryColor square></Button>
     </View>
   );
 }
