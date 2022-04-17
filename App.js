@@ -1,28 +1,44 @@
-import React from 'react';
-import { Button, Incubator, View } from 'react-native-ui-lib';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text, Button } from 'react-native-ui-lib';
+import { initTheme } from './src/utils/theme';
 
-export default function App() {
+function HomeScreen() {
   return (
-    <View flex width="100%" height="100%" paddingV-100>
-      <Incubator.TextField
-        placeholder={'E-mail'}
-        floatingPlaceholder
-        onChangeText={() => console.log('changed')}
-        enableErrors
-        validate={['required', 'email']}
-        validationMessage={['Field is required', 'Email is invalid']}
-        showCharCounter
-      />
-      <Button label="Register" body bg-primaryColor square></Button>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text heading>Hello</Text>
+      <Button label={'Press'} />
     </View>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+function SecondScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Second Screen</Text>
+    </View>
+  );
+}
+
+const Stack = createNativeStackNavigator();
+
+initTheme();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Second" component={SecondScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
