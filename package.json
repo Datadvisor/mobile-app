@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint src/**/*.{ts,tsx}",
-    "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
+    "lint:fix": "eslint --fix src/**/*.{js,ts,jsx,tsx}",
     "format": "prettier --check src/**",
     "format:fix": "prettier --write src/**",
     "test": "jest --passWithNoTests",
