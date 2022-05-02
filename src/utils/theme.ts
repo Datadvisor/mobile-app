@@ -66,10 +66,8 @@ export const initTheme = () => {
     gridGutter: 16,
   });
 
-  ThemeManager.setComponentTheme('Button', (props, context) => {
-    return {
-      borderRadius: 8,
-      uppercase: true,
-    };
+  ThemeManager.setComponentTheme('Button', {
+    borderRadius: 8,
+    uppercase: true,
   });
 };

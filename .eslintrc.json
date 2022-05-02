@@ -19,7 +19,9 @@
   ],
   "plugins": ["@typescript-eslint", "react", "react-hooks", "import", "jest", "prettier"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "import/namespace": "off",
+    "react/prop-types": "off"
   },
   "settings": {
     "react": {
