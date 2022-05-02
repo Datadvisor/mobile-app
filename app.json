@@ -10,12 +10,11 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "owner": "3ch0",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.datadvisor.ea"
