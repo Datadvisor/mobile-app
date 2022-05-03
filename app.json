@@ -10,20 +10,21 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "owner": "pr0m3th3usex",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.datadvisor.ea"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.datadvisor.ea"
     },
     "web": {
       "favicon": "./assets/favicon.png"
