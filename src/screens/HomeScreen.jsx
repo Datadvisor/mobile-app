@@ -1,11 +1,6 @@
-import { View, Text, Button } from 'react-native-ui-lib';
+import { Button, Text, View } from 'native-base';
 import * as React from 'react';
 
 export default function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text heading>Helloo</Text>
-      <Button label={'Press'} />
-    </View>
-  );
+  return <View></View>;
 }
