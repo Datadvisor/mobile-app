@@ -1097,6 +1097,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@expo-google-fonts/rubik@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/rubik/-/rubik-0.2.2.tgz#7706e1cc0b79cc584851f7ec0583e5e0ec0a2e6c"
+  integrity sha512-zE7q+BnzSaNItyz6hX9yYIm2x6Y+QT8nwRcDtnQ/Kci974xh1d/y0hJFtgkLN5hHjITp3g2If9gzsK3CMaih0w==
+
 "@expo/config-plugins@4.0.6":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@expo/config-plugins/-/config-plugins-4.0.6.tgz#ef52f0e4d96ddd52b4cd4cc8c6efbe3d9576c72d"

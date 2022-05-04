@@ -18,16 +18,18 @@ const styles = StyleSheet.create({
 
 export default function SplashScreen({ navigation }) {
   React.useEffect(() => {
-    const id = setTimeout(() => {
-      navigation.replace('Home');
-    }, 2000);
+    if (navigation) {
+      const id = setTimeout(() => {
+        navigation.replace('Register');
+      }, 2000);
 
-    return () => clearTimeout(id);
+      return () => clearTimeout(id);
+    }
   }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Image source={logo} {...styles.logoSize} />
+      <Image source={logo} alt="Logo" {...styles.logoSize} />
     </View>
   );
 }
