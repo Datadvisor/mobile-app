@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import * as React from 'react';
 import LabelWrappedInput from '../components/LabelWrappedInput';
-import { Button, Image, Input, ScrollView, Text, View, VStack } from 'native-base';
+import { Button, Input, ScrollView, VStack } from 'native-base';
 import AuthLayout from '../components/Auth/AuthLayout';
 
 export default function RegisterScreen({ navigation }) {
