@@ -1,13 +1,17 @@
 import { StyleSheet } from 'react-native';
 import * as React from 'react';
-import D from '../../assets/D.png';
 import LabelWrappedInput from '../components/LabelWrappedInput';
-import { Image, Text, View } from 'native-base';
+import { Image, Input, Text, View } from 'native-base';
+import AuthHeader from '../components/Auth/AuthHeader';
+import AuthLayout from '../components/Auth/AuthLayout';
 
 export default function RegisterScreen({ navigation }) {
   return (
-    <View>
-      <Image source={D} />
-    </View>
+    <AuthLayout title="Sign up to your account" subtitle="Clean your data across the web">
+
+      <LabelWrappedInput label="Email">
+        <Input placeholder="Email" />
+      </LabelWrappedInput>
+    </AuthLayout>
   );
 }
