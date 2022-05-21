@@ -1,21 +1,24 @@
+const validatePassword = (password) => {
+  if (password.length < 8) {
+    return 'Password should be at least 8 characters long';
+  }
+
+  return undefined;
+};
+
 const validateRepeatPassword = (password, repeatPassword) => {
   if (!password) {
     return undefined;
   }
 
-  if (repeatPassword.length < 8) {
-    return 'Password should be at least 8 characters long';
+  const invalid = validatePassword(repeatPassword);
+
+  if (invalid) {
+    return invalid;
   }
 
   if (password !== repeatPassword) {
     return 'Passwords are not the same';
-  }
-  return undefined;
-};
-
-const validatePassword = (password) => {
-  if (password.length < 8) {
-    return 'Password should be at least 8 characters long';
   }
 
   return undefined;
