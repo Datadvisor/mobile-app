@@ -40,3 +40,10 @@ export const validateRegistrationInputs = (email, password, repeatPassword) => {
     repeatPassword: validateRepeatPassword(password, repeatPassword),
   };
 };
+
+export const validateLoginInputs = (email, password) => {
+  return {
+    email: validateEmail(email),
+    password: validatePassword(password),
+  };
+};
