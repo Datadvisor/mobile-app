@@ -7,6 +7,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import Splashcreen from './src/screens/SplashScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import theme from './src/utils/theme/theme';
+import LoginScreen from './src/screens/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,13 +38,14 @@ function App() {
     <NativeBaseProvider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Register"
+          initialRouteName="Login"
           screenOptions={{
             headerShown: false,
           }}
         >
           <Stack.Screen name="Splash" component={Splashcreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
         </Stack.Navigator>
       </NavigationContainer>
