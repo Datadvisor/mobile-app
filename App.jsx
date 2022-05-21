@@ -7,6 +7,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import Splashcreen from './src/screens/SplashScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import theme from './src/utils/theme/theme';
+import MainScreen from './src/screens/MainScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +44,7 @@ function App() {
           }}
         >
           <Stack.Screen name="Splash" component={Splashcreen} />
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
         </Stack.Navigator>
       </NavigationContainer>
