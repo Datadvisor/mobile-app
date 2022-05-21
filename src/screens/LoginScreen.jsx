@@ -2,13 +2,12 @@ import * as React from 'react';
 import { Button, Input, ScrollView, Text, VStack } from 'native-base';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import AuthLayout from '../components/Auth/AuthLayout';
-import { validateRegistrationInputs } from '../utils/forms/validation';
+import { validateLoginInputs } from '../utils/forms/validation';
 
 export default function LoginScreen({ navigation }) {
   const [inputErrors, setInputErrors] = React.useState({});
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [repeatPassword, setRepeatPassword] = React.useState('');
 
  const onSubmit = React.useCallback(() => {
     const errors = validateLoginInputs(email, password);

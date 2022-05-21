@@ -41,7 +41,6 @@ export const validateRegistrationInputs = (email, password, repeatPassword) => {
   };
 };
 
-
 export const validateLoginInputs = (email, password) => {
   return {
     email: validateEmail(email),
