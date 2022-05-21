@@ -65,7 +65,7 @@ export default function RegisterScreen({ navigation }) {
           </Button>
         </VStack>
         <Text>
-          Don’t have an account yet ?{' '}
+          Already have an account ?{' '}
           <Text
             color="blue"
             fontWeight="bold"
@@ -74,7 +74,7 @@ export default function RegisterScreen({ navigation }) {
               navigation.navigate('Login');
             }}
           >
-            Sign up
+            Sign in
           </Text>
         </Text>
       </AuthLayout>
