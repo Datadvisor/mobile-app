@@ -46,4 +46,4 @@ export const validateLoginInputs = (email, password) => {
     email: validateEmail(email),
     password: validatePassword(password),
   };
-}
+};

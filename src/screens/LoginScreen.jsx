@@ -9,15 +9,15 @@ export default function LoginScreen({ navigation }) {
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
- const onSubmit = React.useCallback(() => {
+  const onSubmit = React.useCallback(() => {
     const errors = validateLoginInputs(email, password);
     //check mail and password
     if (Object.values(errors).some((e) => e)) {
-        setInputErrors(errors);
-        return;
-        }
+      setInputErrors(errors);
+      return;
+    }
     // Call API to Login user
- }  , [email, password]);
+  }, [email, password]);
 
   return (
     <ScrollView>
