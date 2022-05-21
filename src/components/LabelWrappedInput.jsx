@@ -9,12 +9,12 @@ export default function LabelWrappedInput(props) {
           {props.label}
         </FormControl.Label>
         {props.children}
-        {props.error && (
-          <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-            {props.error}
-          </FormControl.ErrorMessage>
-        )}
       </VStack>
+      {props.error && (
+        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+          {props.error}
+        </FormControl.ErrorMessage>
+      )}
     </FormControl>
   );
 }

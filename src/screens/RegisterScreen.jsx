@@ -1,21 +1,25 @@
-import { StyleSheet } from 'react-native';
 import * as React from 'react';
+import { Button, Input, ScrollView, Text, VStack } from 'native-base';
 import LabelWrappedInput from '../components/LabelWrappedInput';
-import { Button, Input, ScrollView, VStack } from 'native-base';
 import AuthLayout from '../components/Auth/AuthLayout';
+import { validateRegistrationInputs } from '../utils/forms/validation';
 
 export default function RegisterScreen({ navigation }) {
-  const [inputErrors, setInputErrors] = React.useState({
-    email: 'Invalid email',
-  });
-  const [email, setEmail] = React.useState();
-  const [username, setUsername] = React.useState();
-  const [password, setPassword] = React.useState();
-  const [repeatPassword, setRepeatPassword] = React.useState();
+  const [inputErrors, setInputErrors] = React.useState({});
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [repeatPassword, setRepeatPassword] = React.useState('');
 
   const onSubmit = React.useCallback(() => {
-    console.log(email, username, password, repeatPassword);
-  }, [email, username, password, repeatPassword, inputErrors]);
+    const errors = validateRegistrationInputs(email, password, repeatPassword);
+
+    if (Object.values(errors).some((e) => e)) {
+      setInputErrors(errors);
+      return;
+    }
+
+    // Call API to register user
+  }, [email, password, repeatPassword]);
 
   return (
     <ScrollView>
@@ -27,19 +31,8 @@ export default function RegisterScreen({ navigation }) {
                 setInputErrors({ ...inputErrors, email: undefined });
                 setEmail(text.toLowerCase().trim());
               }}
-              placeholder="E-mail"
+              placeholder="Ex: my@data.visor"
               value={email}
-            />
-          </LabelWrappedInput>
-
-          <LabelWrappedInput label="Username" error={inputErrors.username}>
-            <Input
-              onChangeText={(text) => {
-                setInputErrors({ ...inputErrors, username: undefined });
-                setUsername(text);
-              }}
-              placeholder="Username"
-              value={username}
             />
           </LabelWrappedInput>
 
@@ -50,7 +43,7 @@ export default function RegisterScreen({ navigation }) {
                 setInputErrors({ ...inputErrors, password: undefined });
                 setPassword(pwd);
               }}
-              placeholder="Minimum 8 caractères"
+              placeholder="Min. 8 characters"
               value={password}
             />
           </LabelWrappedInput>
@@ -59,17 +52,31 @@ export default function RegisterScreen({ navigation }) {
             <Input
               type="password"
               onChangeText={(repeatPwd) => {
-                setInputErrors({ ...inputErros, repeatPassword: undefined });
+                setInputErrors({ ...inputErrors, repeatPassword: undefined });
                 setRepeatPassword(repeatPwd);
               }}
-              placeholder="Minimum 8 caractères"
+              placeholder="Min. 8 characters"
               value={repeatPassword}
             />
           </LabelWrappedInput>
+
+          <Button variant="primary" w="100%" onPress={onSubmit}>
+            Sign up
+          </Button>
         </VStack>
-        <Button variant="primary" w="100%" onPress={onSubmit}>
-          Sign up
-        </Button>
+        <Text>
+          Don’t have an account yet ?{' '}
+          <Text
+            color="blue"
+            fontWeight="bold"
+            onPress={() => {
+              navigation.pop();
+              navigation.navigate('Login');
+            }}
+          >
+            Sign up
+          </Text>
+        </Text>
       </AuthLayout>
     </ScrollView>
   );
