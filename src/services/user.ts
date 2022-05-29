@@ -24,21 +24,24 @@ export type SignupDto = {
 const userApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
     signup: builder.mutation<void, SignupDto>({
-      query: (body) => ({
+      query: (data) => ({
         method: 'POST',
         url: '/users/signup',
-        body,
+        data,
       }),
     }),
     me: builder.query<User, void>({
-      query: () => '/users/me',
+      query: () => ({
+        method: 'GET',
+        url: '/users/me',
+      }),
       providesTags: ['User'],
     }),
     updateUser: builder.mutation<User, UpdateUserDto & { id: string }>({
-      query: ({ id, ...body }) => ({
+      query: ({ id, ...data }) => ({
         method: 'PATCH',
         url: `/users/${id}`,
-        body,
+        data,
       }),
     }),
     deleteUser: builder.mutation<void, { id: string }>({

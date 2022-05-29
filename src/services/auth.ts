@@ -8,10 +8,10 @@ export type LoginDto = {
 const authApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.query<void, LoginDto>({
-      query: (body) => ({
+      query: (data) => ({
         method: 'POST',
         url: '/auth/signin',
-        body,
+        data,
       }),
       providesTags: ['User'],
     }),

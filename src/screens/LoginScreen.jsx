@@ -3,11 +3,13 @@ import { Button, Input, ScrollView, Text, VStack } from 'native-base';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import AuthLayout from '../components/Auth/AuthLayout';
 import { validateLoginInputs } from '../utils/forms/validation';
+import { useLazyLoginQuery } from '../services/auth';
 
 export default function LoginScreen({ navigation }) {
   const [inputErrors, setInputErrors] = React.useState({});
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [login, { isLoading, isSuccess, isError, error }] = useLazyLoginQuery();
 
   const onSubmit = React.useCallback(() => {
     const errors = validateLoginInputs(email, password);
@@ -17,7 +19,8 @@ export default function LoginScreen({ navigation }) {
       return;
     }
     // Call API to Login user
-  }, [email, password]);
+    login({ email, password });
+  }, [email, password, login]);
 
   return (
     <ScrollView>

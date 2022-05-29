@@ -1,3 +1,3 @@
 export const apiConstants = {
-  apiUrl: 'http://localhost:3001',
+  apiUrl: 'http://192.168.1.45:3001',
 };
