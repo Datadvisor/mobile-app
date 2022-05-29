@@ -3,7 +3,6 @@ import { NativeBaseProvider } from 'native-base';
 import { useFonts, Rubik_400Regular, Rubik_600SemiBold } from '@expo-google-fonts/rubik';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './src/screens/HomeScreen';
 import Splashcreen from './src/screens/SplashScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import theme from './src/utils/theme/theme';
@@ -38,7 +37,7 @@ function App() {
     <NativeBaseProvider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Register"
+          initialRouteName="Login"
           screenOptions={{
             headerShown: false,
           }}
