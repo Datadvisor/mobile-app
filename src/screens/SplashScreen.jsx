@@ -20,7 +20,7 @@ export default function SplashScreen({ navigation }) {
   React.useEffect(() => {
     if (navigation) {
       const id = setTimeout(() => {
-        navigation.replace('Main');
+        navigation.replace('Login');
       }, 2000);
 
       return () => clearTimeout(id);

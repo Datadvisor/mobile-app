@@ -1,3 +1,4 @@
+/* eslint-disable import/named */
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import type { RootState, AppDispatch } from './store';
 

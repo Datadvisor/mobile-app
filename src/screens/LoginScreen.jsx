@@ -56,8 +56,7 @@ export default function LoginScreen({ navigation }) {
             color="blue"
             fontWeight="bold"
             onPress={() => {
-              navigation.pop();
-              navigation.navigate('Home');
+              navigation.navigate('Register');
             }}
           >
             Sign up

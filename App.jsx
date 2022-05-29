@@ -39,21 +39,23 @@ function App() {
   }
 
   return (
-    <NativeBaseProvider theme={theme}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Login"
-          screenOptions={{
-            headerShown: false,
-          }}
-        >
-          <Stack.Screen name="Splash" component={Splashcreen} />
-          <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Register" component={RegisterScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </NativeBaseProvider>
+    <Provider store={store}>
+      <NativeBaseProvider theme={theme}>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Splash"
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="Splash" component={Splashcreen} />
+            <Stack.Screen name="Main" component={MainScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider>
   );
 }
 

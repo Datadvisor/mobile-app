@@ -1,3 +1,8 @@
+/* eslint-disable jest/no-export */
+/* eslint-disable jest/valid-title */
+/* eslint-disable jest/expect-expect */
+/* eslint-disable jest/no-disabled-tests */
+
 const validatePassword = (password) => {
   if (password.length < 8) {
     return 'Password should be at least 8 characters long';

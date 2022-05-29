@@ -70,8 +70,7 @@ export default function RegisterScreen({ navigation }) {
             color="blue"
             fontWeight="bold"
             onPress={() => {
-              navigation.pop();
-              navigation.navigate('Login');
+              navigation.replace('Login');
             }}
           >
             Sign in
