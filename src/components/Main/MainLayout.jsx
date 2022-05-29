@@ -7,7 +7,7 @@ export default function MainLayout({ children, title }) {
     <>
       <StatusBar bg="#3700B3" barStyle="light-content" />
       <View w="100%" minHeight="100%">
-        <VStack alignItems="center" w="100%" h="100%" space="48px">
+        <VStack alignItems="center" w="100%" h="100%" space={0}>
           <TopBar title={title} />
           {children}
         </VStack>
