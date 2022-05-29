@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Button, View } from 'native-base';
+import { Button } from 'native-base';
+import MainLayout from '../components/Main/MainLayout';
 
 export default function ProfileScreen() {
   return (
-    <View flex={1} w="100%" h="100%" justifyContent="center">
+    <MainLayout title="Profile">
       <Button variant="primary">Profile</Button>
-    </View>
+    </MainLayout>
   );
 }
