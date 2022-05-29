@@ -8,6 +8,8 @@ import RegisterScreen from './src/screens/RegisterScreen';
 import theme from './src/utils/theme/theme';
 import MainScreen from './src/screens/MainScreen';
 import LoginScreen from './src/screens/LoginScreen';
+import { Provider } from 'react-redux';
+import { store } from './src/store/store';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,18 +21,20 @@ function App() {
 
   if (!fontsLoaded) {
     return (
-      <NativeBaseProvider theme={theme}>
-        <NavigationContainer>
-          <Stack.Navigator
-            initialRouteName="Splash"
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="Splash" component={Splashcreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </NativeBaseProvider>
+      <Provider store={store}>
+        <NativeBaseProvider theme={theme}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Splash"
+              screenOptions={{
+                headerShown: false,
+              }}
+            >
+              <Stack.Screen name="Splash" component={Splashcreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </NativeBaseProvider>
+      </Provider>
     );
   }
 
