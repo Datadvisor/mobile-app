@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import * as React from 'react';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import { Button, Input, ScrollView, VStack } from 'native-base';

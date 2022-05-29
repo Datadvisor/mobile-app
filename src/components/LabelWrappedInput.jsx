@@ -1,4 +1,4 @@
-import { FormControl, Text, View, VStack } from 'native-base';
+import { FormControl, VStack } from 'native-base';
 import * as React from 'react';
 
 export default function LabelWrappedInput(props) {
