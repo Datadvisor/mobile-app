@@ -59,6 +59,7 @@ const axiosBaseQuery =
         params,
         withCredentials: true,
       });
+console.log(result.status);
 
       return {
         data: result.data,
@@ -72,6 +73,7 @@ const axiosBaseQuery =
       };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
+      console.log(err.response);
       return {
         error: {
           status: err.response?.status,

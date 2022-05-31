@@ -7,13 +7,13 @@ export type LoginDto = {
 
 const authApi = rtkApi.injectEndpoints({
   endpoints: (builder) => ({
-    login: builder.query<void, LoginDto>({
+    login: builder.mutation<void, LoginDto>({
       query: (data) => ({
         method: 'POST',
         url: '/auth/signin',
         data,
       }),
-      providesTags: ['User'],
+      invalidatesTags: ['User'],
     }),
     logout: builder.mutation<void, void>({
       query: () => ({
@@ -25,4 +25,4 @@ const authApi = rtkApi.injectEndpoints({
   }),
 });
 
-export const { useLazyLoginQuery, useLogoutMutation } = authApi;
+export const { useLoginMutation, useLogoutMutation } = authApi;
