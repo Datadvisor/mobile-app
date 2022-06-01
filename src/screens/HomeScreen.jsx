@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Button, View } from 'native-base';
+import { Button, StatusBar, View } from 'native-base';
+import MainLayout from '../components/Main/MainLayout';
 
 export default function HomeScreen() {
   return (
-    <View flex={1} w="100%" h="100%" justifyContent="center">
+    <MainLayout title="Home">
       <Button variant="primary">Home</Button>
-    </View>
+    </MainLayout>
   );
 }
