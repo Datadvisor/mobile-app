@@ -10,6 +10,8 @@ import MainScreen from './src/screens/MainScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import { Provider } from 'react-redux';
 import { store } from './src/store/store';
+import NewPassword from './src/screens/NewPassword';
+import NewEmail from './src/screens/NewEmail';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +54,8 @@ function App() {
             <Stack.Screen name="Main" component={MainScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="NewPassword" component={NewPassword} />
+            <Stack.Screen name="NewEmail" component={NewEmail} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
