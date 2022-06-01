@@ -4,17 +4,12 @@ import LabelWrappedInput from '../components/LabelWrappedInput';
 import AuthLayout from '../components/Auth/AuthLayout';
 import { validateLoginInputs } from '../utils/forms/validation';
 import { useLoginMutation } from '../services/auth';
-import { useMeQuery } from '../services/user';
 
 export default function LoginScreen({ navigation }) {
   const [inputErrors, setInputErrors] = React.useState({});
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [login, { isLoading, isSuccess, isError, error }] = useLoginMutation();
-
-
-  const {data} = useMeQuery();
-
 
   const onSubmit = React.useCallback(() => {
     const errors = validateLoginInputs(email, password);
@@ -54,7 +49,7 @@ export default function LoginScreen({ navigation }) {
             />
           </LabelWrappedInput>
 
-          <Button variant="primary" w="100%" onPress={onSubmit}>
+          <Button variant="primary" w="100%" onPress={onSubmit} isLoading={isLoading}>
             Sign In
           </Button>
         </VStack>

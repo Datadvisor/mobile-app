@@ -26,7 +26,7 @@ const userApi = rtkApi.injectEndpoints({
     signup: builder.mutation<void, SignupDto>({
       query: (data) => ({
         method: 'POST',
-        url: '/users/signup',
+        url: '/users',
         data,
       }),
     }),
@@ -53,4 +53,10 @@ const userApi = rtkApi.injectEndpoints({
   }),
 });
 
-export const { useMeQuery, useUpdateUserMutation, useDeleteUserMutation } = userApi;
+export const {
+  useMeQuery,
+  useLazyMeQuery,
+  useSignupMutation,
+  useUpdateUserMutation,
+  useDeleteUserMutation,
+} = userApi;

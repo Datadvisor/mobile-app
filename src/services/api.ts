@@ -1,42 +1,8 @@
 /* eslint-disable import/named */
-import {
-  createApi,
-  fetchBaseQuery,
-  FetchBaseQueryError,
-  FetchArgs,
-  BaseQueryFn,
-  FetchBaseQueryMeta,
-} from '@reduxjs/toolkit/query/react';
+import { createApi, BaseQueryFn } from '@reduxjs/toolkit/query/react';
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import { apiConstants } from '../utils/constants';
 
-// const baseQuery = fetchBaseQuery({
-//   baseUrl: apiConstants.apiUrl,
-//   prepareHeaders: (headers) => {
-//     // Prepare session cookie
-
-//     return headers;
-//   },
-// });
-
-// const baseQueryWithCookieSet: BaseQueryFn<
-//   string | FetchArgs,
-//   unknown,
-//   FetchBaseQueryError,
-//   Record<string, unknown>,
-//   FetchBaseQueryMeta
-// > = async (args, api, extraOptions) => {
-//   const result = await baseQuery(args, api, extraOptions);
-
-//   console.log(JSON.stringify(result));
-
-//   if (result.meta.response.headers.has('set-cookie')) {
-//     console.log(result.meta.response.headers.get('set-cookie'));
-//     console.log('goood');
-//   }
-
-//   return result;
-// };
 const axiosBaseQuery =
   (
     { baseUrl }: { baseUrl: string } = { baseUrl: '' }
@@ -59,7 +25,6 @@ const axiosBaseQuery =
         params,
         withCredentials: true,
       });
-console.log(result.status);
 
       return {
         data: result.data,
@@ -73,7 +38,7 @@ console.log(result.status);
       };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
-      console.log(err.response);
+
       return {
         error: {
           status: err.response?.status,

@@ -30,7 +30,17 @@ const TABS = {
   },
 };
 
-export default function MainScreen() {
+export default function MainScreen({ navigation }) {
+  const { isAuthenticated, isLoading } = useAuthentication();
+
+  React.useEffect(() => {
+    if (navigation) {
+      if (!isLoading && !isAuthenticated) {
+        navigation.replace('Login');
+      }
+    }
+  }, [navigation, isLoading, isAuthenticated]);
+
   return (
     <View flex={1} w="100%" h="100%" justifyContent="center">
       <Tab.Navigator
