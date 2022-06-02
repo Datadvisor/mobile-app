@@ -20,12 +20,6 @@ export default function NewEmail({ navigation }) {
     }
   }, [isSuccess, isLoading, navigation]);
 
-  React.useEffect(() => {
-    if (error) {
-      console.log(error);
-    }
-  }, [error]);
-
   const onSubmit = React.useCallback(() => {
     const emailError = validateEmail(email);
 
@@ -63,11 +57,12 @@ export default function NewEmail({ navigation }) {
         <Button variant="primary" w="100%" onPress={onSubmit} isLoading={isLoading}>
           Save
         </Button>
-        {/* {error && 'data' in error && (
+
+        {error && 'data' in error && (
           <Text w="100%" textAlign="center" color="red.500">
             {error.data.error.message}
           </Text>
-        )} */}
+        )}
       </VStack>
     </MainLayout>
   );

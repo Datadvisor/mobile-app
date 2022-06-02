@@ -17,12 +17,6 @@ export default function LoginScreen({ navigation }) {
     }
   }, [navigation, isSuccess, isLoading]);
 
-  React.useEffect(() => {
-    if (isError) {
-      console.log(error, 'error');
-    }
-  }, [isError, error]);
-
   const onSubmit = React.useCallback(() => {
     const errors = validateLoginInputs(email.toLowerCase(), password);
     //check mail and password

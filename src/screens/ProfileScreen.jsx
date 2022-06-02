@@ -37,7 +37,9 @@ export default function ProfileScreen({ navigation }) {
             <Text fontWeight="bold">Modification des informations personelles</Text>
             <VStack align="start" pl="32px" space="8px">
               <Text onPress={() => navigation.push('NewEmail')}>Modifier votre email</Text>
-              <Text onPress={() => navigation.push('NewPassword')}>Modifier votre mot de passe</Text>
+              <Text onPress={() => navigation.push('NewPassword')}>
+                Modifier votre mot de passe
+              </Text>
             </VStack>
           </VStack>
 
