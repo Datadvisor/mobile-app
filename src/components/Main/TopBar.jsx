@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { HStack, Image, Text } from 'native-base';
-import D from '../../../assets/D.png';
+import { HStack, Text } from 'native-base';
 
 export default function TopBar({ title }) {
   return (

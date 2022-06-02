@@ -9,7 +9,7 @@ export default function LoginScreen({ navigation }) {
   const [inputErrors, setInputErrors] = React.useState({});
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [login, { isLoading, isSuccess, isError, error }] = useLoginMutation();
+  const [login, { isLoading, isSuccess, error }] = useLoginMutation();
 
   React.useEffect(() => {
     if (!isLoading && isSuccess && navigation) {

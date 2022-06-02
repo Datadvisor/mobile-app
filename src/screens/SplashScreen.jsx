@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 });
 
 export default function SplashScreen({ navigation }) {
-  const [getMyself, { data: me, isSuccess, isError }] = useLazyMeQuery();
+  const [getMyself, { isSuccess, isError }] = useLazyMeQuery();
 
   React.useEffect(() => {
     const id = setTimeout(() => {
