@@ -2,10 +2,10 @@ import * as React from 'react';
 import { Button } from 'native-base';
 import MainLayout from '../components/Main/MainLayout';
 
-export default function HomeScreen() {
+export default function SearchScreen() {
   return (
-    <MainLayout title="Home">
-      <Button variant="primary">Home</Button>
+    <MainLayout title="Search">
+      <Button variant="primary">Search</Button>
     </MainLayout>
   );
 }

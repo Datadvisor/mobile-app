@@ -3,21 +3,30 @@ import { Button, Input, ScrollView, Text, VStack } from 'native-base';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import AuthLayout from '../components/Auth/AuthLayout';
 import { validateLoginInputs } from '../utils/forms/validation';
+import { useLoginMutation } from '../services/auth';
 
 export default function LoginScreen({ navigation }) {
   const [inputErrors, setInputErrors] = React.useState({});
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [login, { isLoading, isSuccess, error }] = useLoginMutation();
+
+  React.useEffect(() => {
+    if (!isLoading && isSuccess && navigation) {
+      navigation.replace('Main');
+    }
+  }, [navigation, isSuccess, isLoading]);
 
   const onSubmit = React.useCallback(() => {
-    const errors = validateLoginInputs(email, password);
+    const errors = validateLoginInputs(email.toLowerCase(), password);
     //check mail and password
     if (Object.values(errors).some((e) => e)) {
       setInputErrors(errors);
       return;
     }
     // Call API to Login user
-  }, [email, password]);
+    login({ email: email.toLowerCase(), password });
+  }, [email, password, login]);
 
   return (
     <ScrollView>
@@ -27,7 +36,7 @@ export default function LoginScreen({ navigation }) {
             <Input
               onChangeText={(text) => {
                 setInputErrors({ ...inputErrors, email: undefined });
-                setEmail(text.toLowerCase().trim());
+                setEmail(text.trim());
               }}
               placeholder="Ex: my@data.visor"
               value={email}
@@ -46,9 +55,15 @@ export default function LoginScreen({ navigation }) {
             />
           </LabelWrappedInput>
 
-          <Button variant="primary" w="100%" onPress={onSubmit}>
+          <Button variant="primary" w="100%" onPress={onSubmit} isLoading={isLoading}>
             Sign In
           </Button>
+
+          {error && 'data' in error && (
+            <Text w="100%" textAlign="center" color="red.500">
+              {error.data.error.message}
+            </Text>
+          )}
         </VStack>
         <Text>
           Don’t have an account yet ?{' '}
@@ -56,8 +71,7 @@ export default function LoginScreen({ navigation }) {
             color="blue"
             fontWeight="bold"
             onPress={() => {
-              navigation.pop();
-              navigation.navigate('Home');
+              navigation.replace('Register');
             }}
           >
             Sign up
