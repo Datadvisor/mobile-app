@@ -43,12 +43,14 @@ const userApi = rtkApi.injectEndpoints({
         url: `/users/${id}`,
         data,
       }),
+      invalidatesTags: ['User'],
     }),
     deleteUser: builder.mutation<void, { id: string }>({
       query: ({ id }) => ({
         method: 'DELETE',
         url: `/users/${id}`,
       }),
+      invalidatesTags: ['User'],
     }),
   }),
 });
