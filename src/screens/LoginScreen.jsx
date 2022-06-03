@@ -64,6 +64,14 @@ export default function LoginScreen({ navigation }) {
               {error.data.error.message}
             </Text>
           )}
+
+          <Text w="100%" textAlign="center">
+            OR
+          </Text>
+
+          <Button variant="primary" w="100%" isDisabled={isLoading}>
+            Sign in with Google
+          </Button>
         </VStack>
         <Text>
           Don’t have an account yet ?{' '}
