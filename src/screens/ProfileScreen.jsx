@@ -34,25 +34,23 @@ export default function ProfileScreen({ navigation }) {
           </HStack>
 
           <VStack alignItems="flex-start" space="12px">
-            <Text fontWeight="bold">Modification des informations personelles</Text>
+            <Text fontWeight="bold">Change personal information</Text>
             <VStack align="start" pl="32px" space="8px">
-              <Text onPress={() => navigation.push('NewEmail')}>Modifier votre email</Text>
-              <Text onPress={() => navigation.push('NewPassword')}>
-                Modifier votre mot de passe
-              </Text>
+              <Text onPress={() => navigation.push('NewEmail')}>Change your email</Text>
+              <Text onPress={() => navigation.push('NewPassword')}>Change your password</Text>
             </VStack>
           </VStack>
 
           <VStack alignItems="center" space="12px" w="100%">
             <Button variant="primary" w="100%" onPress={() => logout()} isLoading={isLoading}>
-              Déconnexion
+              Log out
             </Button>
             <Text>ou</Text>
-            <Text color="#E74C3C">Supprimer le compte</Text>
+            <Text color="#E74C3C">Delete your account</Text>
           </VStack>
         </VStack>
 
-        <Text color="#ccc">Compte créé le {dayjs(user?.createdAt).format('DD/MM/YYYY')}</Text>
+        <Text color="#ccc">Account created the {dayjs(user?.createdAt).format('DD/MM/YYYY')}</Text>
       </VStack>
     </MainLayout>
   );
