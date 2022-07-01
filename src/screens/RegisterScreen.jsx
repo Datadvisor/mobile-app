@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Button, Input, ScrollView, Text, VStack } from 'native-base';
+import { Button, Input, ScrollView, Text, useToast, VStack } from 'native-base';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import AuthLayout from '../components/Auth/AuthLayout';
 import { validateRegistrationInputs } from '../utils/forms/validation';
 import { useSignupMutation } from '../services/user';
 
 export default function RegisterScreen({ navigation }) {
+  const toast = useToast();
   const [inputErrors, setInputErrors] = React.useState({});
   const [firstname, setFirstname] = React.useState('');
   const [lastname, setLastname] = React.useState('');
@@ -18,7 +19,14 @@ export default function RegisterScreen({ navigation }) {
   React.useEffect(() => {
     if (!isLoading && isSuccess && navigation) {
       navigation.replace('Login');
+      toast.show({
+        title: 'Success',
+        description: 'User account created !',
+        variant: 'success',
+        bg: 'green.400',
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigation, isSuccess, isLoading]);
 
   const onSubmit = React.useCallback(() => {
@@ -28,7 +36,6 @@ export default function RegisterScreen({ navigation }) {
       setInputErrors(errors);
       return;
     }
-
     // Call API to register user
     register({ lastName: lastname, firstName: firstname, email: email.toLowerCase(), password });
   }, [register, firstname, lastname, email, password, repeatPassword]);

@@ -1,4 +1,4 @@
-import { Button, Input, Text, VStack } from 'native-base';
+import { Button, Input, Text, useToast, VStack } from 'native-base';
 import * as React from 'react';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import MainLayout from '../components/Main/MainLayout';
@@ -7,6 +7,7 @@ import { useUpdateUserMutation } from '../services/user';
 import { validateEmail } from '../utils/forms/validation';
 
 export default function NewEmail({ navigation }) {
+  const toast = useToast();
   const [inputErrors, setInputErrors] = React.useState({});
   const user = useLoggedInUser();
   const [email, setEmail] = React.useState(user?.email);
@@ -16,8 +17,14 @@ export default function NewEmail({ navigation }) {
 
   React.useEffect(() => {
     if (navigation && !isLoading && isSuccess) {
-      navigation.goBack();
+      toast.show({
+        title: 'Success',
+        description: 'Your email has been updated',
+        variant: 'success',
+        bg: 'green.400',
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, isLoading, navigation]);
 
   const onSubmit = React.useCallback(() => {

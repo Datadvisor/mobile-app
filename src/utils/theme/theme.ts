@@ -34,6 +34,7 @@ const theme = extendTheme({
   components: {
     Button,
     Input,
+    // Toast,
   },
 });
 

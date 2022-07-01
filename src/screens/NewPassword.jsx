@@ -1,4 +1,4 @@
-import { Button, Input, Text, VStack } from 'native-base';
+import { Button, Input, Text, useToast, VStack } from 'native-base';
 import * as React from 'react';
 import LabelWrappedInput from '../components/LabelWrappedInput';
 import MainLayout from '../components/Main/MainLayout';
@@ -7,6 +7,7 @@ import { useUpdateUserMutation } from '../services/user';
 import { validatePassword } from '../utils/forms/validation';
 
 export default function NewPassword({ navigation }) {
+  const toast = useToast();
   const user = useLoggedInUser();
   const [inputErrors, setInputErrors] = React.useState({});
   const [password, setPassword] = React.useState('');
@@ -14,11 +15,17 @@ export default function NewPassword({ navigation }) {
 
   React.useEffect(() => {
     if (navigation && !isLoading && isSuccess) {
-      navigation.goBack();
+      toast.show({
+        title: 'Success',
+        description: 'Your password has been updated',
+        bg: 'green.400',
+        variant: 'success',
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, isLoading, navigation]);
 
-  const onSubmit = React.useCallback(() => {
+  const onSubmit = () => {
     const passwordError = validatePassword(password);
 
     if (passwordError) {
@@ -29,7 +36,7 @@ export default function NewPassword({ navigation }) {
     if (user) {
       updateUser({ password, id: user.id });
     }
-  }, [updateUser, password, setInputErrors, user]);
+  };
 
   return (
     <MainLayout title="Changer votre mot de passe">
