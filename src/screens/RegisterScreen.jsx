@@ -18,12 +18,13 @@ export default function RegisterScreen({ navigation }) {
 
   React.useEffect(() => {
     if (!isLoading && isSuccess && navigation) {
-      navigation.replace('Login');
+      // navigation.replace('Login');
       toast.show({
         title: 'Success',
         description: 'User account created !',
         variant: 'success',
         bg: 'green.400',
+        duration: 2000,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
