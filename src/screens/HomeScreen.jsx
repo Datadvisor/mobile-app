@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, StatusBar, View } from 'native-base';
+import { Button } from 'native-base';
 import MainLayout from '../components/Main/MainLayout';
 
 export default function HomeScreen() {

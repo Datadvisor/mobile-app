@@ -9,17 +9,23 @@ export default function LoginScreen({ navigation }) {
   const [inputErrors, setInputErrors] = React.useState({});
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
-  const [login, { isLoading, isSuccess, isError, error }] = useLoginMutation();
+  const [login, { isLoading, isSuccess, error }] = useLoginMutation();
+
+  React.useEffect(() => {
+    if (!isLoading && isSuccess && navigation) {
+      navigation.replace('Main');
+    }
+  }, [navigation, isSuccess, isLoading]);
 
   const onSubmit = React.useCallback(() => {
-    const errors = validateLoginInputs(email, password);
+    const errors = validateLoginInputs(email.toLowerCase(), password);
     //check mail and password
     if (Object.values(errors).some((e) => e)) {
       setInputErrors(errors);
       return;
     }
     // Call API to Login user
-    login({ email, password });
+    login({ email: email.toLowerCase(), password });
   }, [email, password, login]);
 
   return (
@@ -30,7 +36,7 @@ export default function LoginScreen({ navigation }) {
             <Input
               onChangeText={(text) => {
                 setInputErrors({ ...inputErrors, email: undefined });
-                setEmail(text.toLowerCase().trim());
+                setEmail(text.trim());
               }}
               placeholder="Ex: my@data.visor"
               value={email}
@@ -51,6 +57,20 @@ export default function LoginScreen({ navigation }) {
 
           <Button variant="primary" w="100%" onPress={onSubmit} isLoading={isLoading}>
             Sign In
+          </Button>
+
+          {error && 'data' in error && (
+            <Text w="100%" textAlign="center" color="red.500">
+              {error.data.error.message}
+            </Text>
+          )}
+
+          <Text w="100%" textAlign="center">
+            OR
+          </Text>
+
+          <Button variant="primary" w="100%" isDisabled={isLoading}>
+            Sign in with Google
           </Button>
         </VStack>
         <Text>

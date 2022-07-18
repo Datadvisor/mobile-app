@@ -12,6 +12,7 @@ import {
   OutlinedProfileIcon,
   OutlinedSearchIcon,
 } from '../components/Icons';
+import { useAuthentication } from '../hooks/useAuthentication';
 
 const Tab = createBottomTabNavigator();
 
