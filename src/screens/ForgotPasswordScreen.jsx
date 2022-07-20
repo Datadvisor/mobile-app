@@ -7,13 +7,11 @@ import { Alert } from 'react-native';
 export default function ForgotPasswordScreen({ navigation }) {
   const [Email, setEmail] = React.useState('');
 
-  const handleEmailChange = text => setEmail(text);
+  const handleEmailChange = (text) => setEmail(text);
 
   function checkPassword() {
-    if (Email.includes('@') && Email.includes('.'))
-      navigation.navigate('ResetPassword')
-    else
-      Alert.alert("Error:\nEmail not valid")
+    if (Email.includes('@') && Email.includes('.')) navigation.navigate('ResetPassword');
+    else Alert.alert('Error:\nEmail not valid');
   }
 
   return (

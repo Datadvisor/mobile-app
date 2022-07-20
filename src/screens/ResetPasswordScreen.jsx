@@ -4,21 +4,17 @@ import { Button, Input, View, VStack } from 'native-base';
 import { Alert } from 'react-native';
 import AuthLayout from '../components/Auth/AuthLayout';
 
-
 export default function ResetPasswordScreen({ navigation }) {
   const [Password, setPassword] = React.useState('');
   const [ConfirmPassword, setConfirmPassword] = React.useState('');
 
-  const handlePasswordChange = text => setPassword(text);
-  const handleConfirmPasswordChange = text => setConfirmPassword(text);
+  const handlePasswordChange = (text) => setPassword(text);
+  const handleConfirmPasswordChange = (text) => setConfirmPassword(text);
 
   function checkPassword() {
-    if (Password.length < 8)
-      Alert.alert("Error:\nThis password is too short")
-    else if (Password !== ConfirmPassword)
-      Alert.alert("Error:\nPasswords are not identical")
-    else
-      navigation.navigate('Register')
+    if (Password.length < 8) Alert.alert('Error:\nThis password is too short');
+    else if (Password !== ConfirmPassword) Alert.alert('Error:\nPasswords are not identical');
+    else navigation.navigate('Register');
   }
 
   return (

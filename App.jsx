@@ -11,6 +11,8 @@ import LoginScreen from './src/screens/LoginScreen';
 import { Provider } from 'react-redux';
 import { store } from './src/store/store';
 import NewPassword from './src/screens/NewPassword';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+import ResetPasswordScreen from './src/screens/ResetPasswordScreen';
 import NewEmail from './src/screens/NewEmail';
 
 const Stack = createNativeStackNavigator();
@@ -56,6 +58,8 @@ function App() {
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="NewPassword" component={NewPassword} />
             <Stack.Screen name="NewEmail" component={NewEmail} />
+            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+            <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>

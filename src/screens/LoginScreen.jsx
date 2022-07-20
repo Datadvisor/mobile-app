@@ -73,6 +73,15 @@ export default function LoginScreen({ navigation }) {
             Sign in with Google
           </Button>
         </VStack>
+        <Text
+          color="blue"
+          fontWeight="bold"
+          onPress={() => {
+            navigation.replace('ForgotPassword');
+          }}
+        >
+          Forgot Password ?
+        </Text>
         <Text>
           Don’t have an account yet ?{' '}
           <Text
